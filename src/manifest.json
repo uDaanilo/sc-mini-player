@@ -1,0 +1,27 @@
+{
+   "manifest_version": 2,
+   "version": "0.0.1",
+   "name": "SoundCloud Mini Player",
+   "description": "A simple soundcloud mini player",
+   "author": "Danilo Gomes",
+   "homepage_url": "https://github.com/uDaanilo/sc-mini-player",
+   "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+   },
+   "background": {
+      "scripts": ["background.js"]
+   },
+   "permissions": ["tabs"],
+   "content_scripts": [{
+      "matches": ["*://soundcloud.com/*"],
+      "all_frames": true,
+      "js": ["content.js", "controls.js"]
+   }],
+   "browser_action": {
+      "default_title": "SC Mini Player",
+      "default_popup": "popup/popup.html",
+      "default_icon": "icon.png"
+   }
+}

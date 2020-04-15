@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>SC Player</title>
+   <link rel="stylesheet" href="main.css">
+   <meta charset="utf-8">
+</head>
+<body>
+   <div class="background" style="background-image: url('../assets/sc.jpeg')">
+   </div>
+   <div class="content">
+      <div id="artwork" style="background-image: url('../assets/sc.jpeg')"></div>
+      <div class="controllers">
+         <h1 class="mouse-over" id="title">Try listen a music on soundcoud</h1>
+         <small class="mouse-over" id="author">SoundCloud</small>
+         <input title="0" type="range" name="" value="0" min="0" max="100" id="slider">
+         <div class="controls">
+            <div class="left">
+               <button class="actBtn" id="backward"><img width="20" src="../assets/step-backward-solid.svg" alt=""></button>
+               <button class="actBtn" id="toggle"><img id="imgToggle" width="20" src="../assets/play-solid.svg" alt=""></button>
+               <button class="actBtn" id="forward"><img width="20" src="../assets/step-forward-solid.svg" alt=""></button>
+            </div>
+            <div class="right">
+               <button class="actBtn" id="fav"><img id="imgFav" width="20" src="../assets/heart-solid.svg" alt=""></button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="main.js"></script>
+</body>
+</html>
