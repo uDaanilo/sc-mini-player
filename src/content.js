@@ -24,4 +24,3 @@ function updateSongInfo(){
 
    chrome.runtime.sendMessage(songInfo)
 }
-

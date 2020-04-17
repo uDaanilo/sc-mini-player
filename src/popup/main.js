@@ -2,6 +2,7 @@ const title = document.querySelector("#title")
 const author = document.querySelector("#author")
 const artwork = document.querySelector("#artwork")
 const rangeInput = document.querySelector("#slider")
+const background = document.querySelector(".background")
 var songInfo
 
 actBtns = document.querySelectorAll(".actBtn")
@@ -16,23 +17,23 @@ for (let i = 0; i < actBtns.length; i++) {
 }
 
 chrome.runtime.onMessage.addListener((res, sender, sendRes) => {
-   songInfo = res
    if(res.isCurPage) return
+   songInfo = res
 
-   if(res.title) title.innerText = res.title
-   if(res.author) author.innerText = res.author
+   if(res.title && title.innerText !== res.title) title.innerText = res.title
+   if(res.author && author.innerText !== res.author) author.innerText = res.author
    if(res.totalLength) rangeInput.max = res.totalLength
 
    if(res.artwork) {
       artwork.style.backgroundImage = res.artwork.replace("t50x50", "t500x500")
-      document.querySelector(".background").style.backgroundImage = res.artwork
+      background.style.backgroundImage = res.artwork
    }
 
    if(res.curLength) {
       rangeInput.value = res.curLength
       rangeInput.title = `${res.curLengthFormatted} / ${res.totalLengthFormatted}`
    }
-   
+
    if(res.playing){
       if(document.getElementById("imgToggle").src.substr("-14") == "play-solid.svg")
          document.getElementById("imgToggle").src = "../assets/pause-solid.svg"
@@ -50,7 +51,20 @@ chrome.runtime.onMessage.addListener((res, sender, sendRes) => {
          document.getElementById("imgFav").src = "../assets/heart-solid.svg"
          document.getElementById("imgFav").style.filter = 'invert(100%) sepia(100%) saturate(0%) hue-rotate(339deg) brightness(112%) contrast(102%)'
    }
-})
 
+   try {
+     BackgroundCheck.init({
+        targets: ".change__theme",
+        images: ".background",
+        threshold: 81,
+        debug: true
+     })
+
+     BackgroundCheck.refresh()
+   } catch (e) {
+     return
+   }
+
+})
 
 title.addEventListener('click', () => songInfo ? chrome.tabs.create({ url: songInfo.songLink }) : null)

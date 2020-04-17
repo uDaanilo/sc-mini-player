@@ -6,16 +6,15 @@
    <meta charset="utf-8">
 </head>
 <body>
-   <div class="background" style="background-image: url('../assets/sc.jpeg')">
-   </div>
+   <div class="background" style="background-image: url('../assets/sc.jpeg')"></div>
    <div class="content">
       <div id="artwork" style="background-image: url('../assets/sc.jpeg')"></div>
       <div class="controllers">
-         <h1 class="mouse-over" id="title">Try listen a music on soundcoud</h1>
-         <small class="mouse-over" id="author">SoundCloud</small>
+         <h1 class="mouse-over change__theme" id="title">Try listen a music on soundcoud</h1>
+         <small class="change__theme" id="author">SoundCloud</small>
          <input title="0" type="range" name="" value="0" min="0" max="100" id="slider">
          <div class="controls">
-            <div class="left">
+            <div class="left change__theme">
                <button class="actBtn" id="backward"><img width="20" src="../assets/step-backward-solid.svg" alt=""></button>
                <button class="actBtn" id="toggle"><img id="imgToggle" width="20" src="../assets/play-solid.svg" alt=""></button>
                <button class="actBtn" id="forward"><img width="20" src="../assets/step-forward-solid.svg" alt=""></button>
@@ -26,6 +25,7 @@
          </div>
       </div>
    </div>
+   <script src="background-check.min.js"></script>
    <script src="main.js"></script>
 </body>
 </html>
